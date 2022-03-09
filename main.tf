@@ -39,9 +39,15 @@ resource "google_project_service" "required_apis_for_gar_integration" {
 }
 
 // Role(s) for a GAR integration
-resource "google_project_iam_member" "for_gar_integration" {
+resource "google_project_iam_member" "gar_reader" {
   project = local.project_id
   role    = "roles/artifactregistry.reader"
+  member  = "serviceAccount:${local.service_account_json_key.client_email}"
+}
+
+resource "google_project_iam_member" "storage_reader" {
+  project = local.project_id
+  role    = "roles/storage.objectViewer"
   member  = "serviceAccount:${local.service_account_json_key.client_email}"
 }
 
@@ -52,7 +58,8 @@ resource "time_sleep" "wait_time" {
   depends_on = [
     module.lacework_gar_svc_account,
     google_project_service.required_apis_for_gar_integration,
-    google_project_iam_member.for_gar_integration
+    google_project_iam_member.gar_reader,
+    google_project_iam_member.storage_reader
   ]
 }
 
