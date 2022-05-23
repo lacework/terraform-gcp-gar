@@ -9,21 +9,23 @@ A Terraform Module to integrate Google Artifact Registry (GAR) with Lacework.
 
 :warning: - **NOTE:** When using an existing Service Account, Terraform cannot work out whether a role has already been applied.
 This means when running the destroy step, existing roles may be removed from the Service Account. If this Service Account
-is managed by another Terraform module, you can re-run apply on the other module and this will re-add the role. 
+is managed by another Terraform module, you can re-run apply on the other module and this will re-add the role.
 
-Alternatively, it is possible to remove the offending roles from the state file before destroy, preventing the role(s) 
-from being removed. 
+Alternatively, it is possible to remove the offending roles from the state file before destroy, preventing the role(s)
+from being removed.
 
 e.g. `terraform state rm 'google_project_iam_member.for_gar_integration'`
 
 **TODO:**  Update and Verify Example Scripts
 
 ## Required Roles
+
 ```
 roles/artifactRegistry.reader
 ```
 
 ## Required APIs
+
 ```
 cloudresourcemanager.googleapis.com
 artifactregistry.googleapis.com
@@ -33,7 +35,7 @@ artifactregistry.googleapis.com
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.12.26 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
 | <a name="requirement_google"></a> [google](#requirement\_google) | ~> 3.0 |
 | <a name="requirement_lacework"></a> [lacework](#requirement\_lacework) | >= 0.9.2 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.6 |
