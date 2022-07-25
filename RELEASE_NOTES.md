@@ -1,7 +1,12 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v0.3.0`.
+Another day, another release. These are the release notes for the version `v0.4.0`.
 
 ## Features
-* feat: allow google provider version >= 3.0.0, < 5.0.0 (#10) (Darren)([e515d11](https://github.com/lacework/terraform-gcp-gar/commit/e515d11bda489c6ab65c88e57f20e5edc9211a1b))
+* feat: deprecate support for Terraform 0.12 and 0.13 (#13) (Darren)([cf5fe77](https://github.com/lacework/terraform-gcp-gar/commit/cf5fe778a66c9de770577ee03ee16e16f34d84c4))
+## Bug Fixes
+* fix: adding roles/storage.objectViewer and enabling library scanning by default (#7) (Mike Laramie)([6ea75eb](https://github.com/lacework/terraform-gcp-gar/commit/6ea75ebd67feba5ed5d547402eab66ac677d7760))
+## Documentation Updates
+* docs: update docs.lacework.net example links (#6) (robewedd)([9b3c05c](https://github.com/lacework/terraform-gcp-gar/commit/9b3c05c07c62a3fbb17ae2a5c5121624e1d3e31b))
 ## Other Changes
-* ci: version bump to v0.2.1-dev (Lacework)([8965d56](https://github.com/lacework/terraform-gcp-gar/commit/8965d56a663ea62ff17ee9a2517ed51392ac15d6))
+* chore: update PR template (#12) (Darren)([87da017](https://github.com/lacework/terraform-gcp-gar/commit/87da017cb6bb55310e5475baecc96341529a286b))
+* ci: version bump to v0.3.1-dev (Lacework)([2e719a2](https://github.com/lacework/terraform-gcp-gar/commit/2e719a26f1ef08642049198976d168a78f00c8f2))
