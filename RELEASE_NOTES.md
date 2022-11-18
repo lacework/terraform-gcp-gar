@@ -1,8 +1,7 @@
 # Release Notes
-Another day, another release. These are the release notes for the version `v0.4.1`.
+Another day, another release. These are the release notes for the version `v0.4.2`.
 
-## Documentation Updates
-* docs: update Lacework provider version in readme (#18) (Darren)([384e7bf](https://github.com/lacework/terraform-gcp-gar/commit/384e7bf1adfc3b61d8e45a276dcc43550546635c))
+## Bug Fixes
+* fix: empty project_id in google_project data source (#20) (Salim Afiune)([387e1fe](https://github.com/lacework/terraform-gcp-gar/commit/387e1fe96709e08728786eaa44005cb822b41b0a))
 ## Other Changes
-* chore: update Lacework provider version to v1 (#17) (Darren)([8e67cb1](https://github.com/lacework/terraform-gcp-gar/commit/8e67cb1d269cd7ad34849e29c38ddcd244f6bad4))
-* ci: version bump to v0.4.1-dev (Lacework)([a43bfe1](https://github.com/lacework/terraform-gcp-gar/commit/a43bfe1eef31d47dc6ae4c17dd45b49889910e46))
+* ci: version bump to v0.4.2-dev (Lacework)([0c1aee9](https://github.com/lacework/terraform-gcp-gar/commit/0c1aee990155fb0f5281c86eb89fbf8c07c0744c))
