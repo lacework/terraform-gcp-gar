@@ -31,12 +31,13 @@ cloudresourcemanager.googleapis.com
 artifactregistry.googleapis.com
 ```
 
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.14 |
-| <a name="requirement_google"></a> [google](#requirement\_google) | ~> 3.0 |
+| <a name="requirement_google"></a> [google](#requirement\_google) | >= 4.4.0, < 5.0.0 |
 | <a name="requirement_lacework"></a> [lacework](#requirement\_lacework) | ~> 1.0 |
 | <a name="requirement_time"></a> [time](#requirement\_time) | ~> 0.6 |
 
@@ -44,7 +45,7 @@ artifactregistry.googleapis.com
 
 | Name | Version |
 |------|---------|
-| <a name="provider_google"></a> [google](#provider\_google) | ~> 3.0 |
+| <a name="provider_google"></a> [google](#provider\_google) | >= 4.4.0, < 5.0.0 |
 | <a name="provider_lacework"></a> [lacework](#provider\_lacework) | ~> 1.0 |
 | <a name="provider_random"></a> [random](#provider\_random) | n/a |
 | <a name="provider_time"></a> [time](#provider\_time) | ~> 0.6 |
@@ -59,7 +60,8 @@ artifactregistry.googleapis.com
 
 | Name | Type |
 |------|------|
-| [google_project_iam_member.for_gar_integration](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.gar_reader](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
+| [google_project_iam_member.storage_reader](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_iam_member) | resource |
 | [google_project_service.required_apis_for_gar_integration](https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/project_service) | resource |
 | [lacework_integration_gar.default](https://registry.terraform.io/providers/lacework/lacework/latest/docs/resources/integration_gar) | resource |
 | [random_id.uniq](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/id) | resource |
@@ -72,9 +74,9 @@ artifactregistry.googleapis.com
 |------|-------------|------|---------|:--------:|
 | <a name="input_lacework_integration_name"></a> [lacework\_integration\_name](#input\_lacework\_integration\_name) | The integration name displayed in the Lacework UI. | `string` | `"TF GAR"` | no |
 | <a name="input_limit_by_label"></a> [limit\_by\_label](#input\_limit\_by\_label) | An image label to limit the assessment of images with matching label. If you specify limit\_by\_tag and limit\_by\_label limits, they function as an AND.  Input is "key" = "value" | `list(any)` | <pre>[<br>  {<br>    "": ""<br>  }<br>]</pre> | no |
-| <a name="input_limit_by_repositories"></a> [limit\_by\_repositories](#input\_limit\_by\_repositories) | A comma-separated list of repositories to assess. This should be defined as a string. (without spaces recommended) | `list(any)` | `[]` | no |
+| <a name="input_limit_by_repositories"></a> [limit\_by\_repositories](#input\_limit\_by\_repositories) | A comma-separated list of repositories to assess. Defaults to empty (will assess all repositories in the registry). | `list(any)` | `[]` | no |
 | <a name="input_limit_by_tags"></a> [limit\_by\_tags](#input\_limit\_by\_tags) | An image tag to limit the assessment of images with matching tag. If you specify limit\_by\_tag and limit\_by\_label limits, they function as an AND. Supported field input are mytext*mytext, mytext, mytext*, or mytext. Only one * wildcard is supported | `list(any)` | `[]` | no |
-| <a name="input_limit_num_imgs"></a> [limit\_num\_imgs](#input\_limit\_num\_imgs) | The maximum number of newest container images to assess per repository. Must be one of 5, 10, or 15. | `string` | `"5"` | no |
+| <a name="input_limit_num_imgs"></a> [limit\_num\_imgs](#input\_limit\_num\_imgs) | The maximum number of newest container images to assess per repository. Must be one of 5, 10, or 15 | `string` | `"5"` | no |
 | <a name="input_non_os_package_support"></a> [non\_os\_package\_support](#input\_non\_os\_package\_support) | Whether or not the integration should check non-os packages in the container for vulnerabilities | `bool` | `true` | no |
 | <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix that will be use at the beginning of every generated resource | `string` | `"lw-gar"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | A project ID different from the default defined inside the provider | `string` | `""` | no |
@@ -91,3 +93,4 @@ artifactregistry.googleapis.com
 |------|-------------|
 | <a name="output_service_account_name"></a> [service\_account\_name](#output\_service\_account\_name) | The Service Account name created for the integration |
 | <a name="output_service_account_private_key"></a> [service\_account\_private\_key](#output\_service\_account\_private\_key) | The private key in JSON format, base64 encoded |
+<!-- END_TF_DOCS -->
